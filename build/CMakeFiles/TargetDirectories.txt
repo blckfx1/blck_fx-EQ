@@ -1,0 +1,5 @@
+C:/projects/blck_fx-eq/build/CMakeFiles/ALL_BUILD.dir
+C:/projects/blck_fx-eq/build/CMakeFiles/ZERO_CHECK.dir
+C:/projects/blck_fx-eq/build/src/common/CMakeFiles/blck_fx_common.dir
+C:/projects/blck_fx-eq/build/src/apo/CMakeFiles/blackfox_apo.dir
+C:/projects/blck_fx-eq/build/src/gui/CMakeFiles/blck_fx-eq_gui.dir

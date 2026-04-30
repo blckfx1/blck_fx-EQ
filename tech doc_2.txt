@@ -1,0 +1,52 @@
+blck_fx-eq – CMake Configuration Troubleshooting Log
+===================================================
+Date: April 2026
+Project: blck_fx-eq (blackfoxCustomAPO)
+Status: SUCCESS
+
+Summary of Problems & Solutions
+===============================
+
+1. Problem: CMake was configuring "external" folder instead of root
+   Cause: VS Code CMake Tools cache issue
+   Solution: Created .vscode/settings.json + used "cmake -S . -B build" command
+
+2. Problem: FetchContent (git download) failed
+   Cause: Project path had Russian letters (Мой диск, химия)
+   Solution: Moved project to C:\projects\blck_fx-eq (clean English path)
+
+3. Problem: Missing CMakeLists.txt in subfolders
+   Solution: Created external/, src/common/, src/apo/, src/gui/ CMakeLists.txt
+
+4. Problem: Missing source files (version.cpp, main.cpp)
+   Solution: Created all required .cpp files
+
+5. Problem: Cache and platform mismatch errors
+   Solution: Repeated "Remove-Item -Recurse -Force build"
+
+Final Working Commands (Recommended)
+====================================
+# Clean + Configure
+Remove-Item -Recurse -Force build -ErrorAction SilentlyContinue
+cmake -S . -B build -G "Visual Studio 18 2026" -A x64
+
+# Build Release
+cmake --build build --config Release
+
+Current Status
+==============
+- CMake configures successfully
+- nlohmann/json downloaded
+- All sub-projects recognized
+- Ready for Phase 2 (Minimal APO)
+
+Created Files (Important)
+=========================
+- CMakeLists.txt (root)
+- external/CMakeLists.txt
+- src/common/CMakeLists.txt + include/version.h + src/version.cpp
+- src/apo/CMakeLists.txt + src/main.cpp
+- src/gui/CMakeLists.txt + src/main.cpp
+- .vscode/settings.json
+
+End of Log

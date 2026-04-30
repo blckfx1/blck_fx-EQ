@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "blackfox_apo.dir\\Release\\main.obj",
+            "outputs": [
+                "blackfox_apo.dir\\Release\\"
+            ],
+            "requires": []
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+blck_fx-eq – Technical Document
+================================
+
+Project Code Name: blck_fx-eq
+APO Name: blackfoxCustomAPO
+Date: April 2026
+Target OS: Windows 10 / Windows 11 (x64 only)
+Language: Modern C++23
+Build System: CMake 3.28+
+IDE: Visual Studio Code + CMake Tools
+
+1. Project Goals
+----------------
+- Create a completely custom system-wide 12-band equalizer as a Windows Audio Processing Object (APO).
+- Fully compatible with FL Studio 2025 (and any other DAW or application using WASAPI).
+- Works with Steinberg UR22mkII (when set as default output device).
+- Sample rate: 44.1 kHz primary, with fallback support for other rates.
+- 12 sliders (one per band) + 1 Master Gain slider.
+- Special gain behavior: ±10 dB with 1 dB steps; outside this range → 0.1 dB precision.
+- NY-Style parallel compression + soft saturation (activates when Master Gain > 0 dB).
+- Switchable Dark theme ↔ Neon theme.
+- Small resizable window + System Tray support.
+- Pure output processing only (no input/recording path).
+- Designed for learning OS-level audio development.
+
+2. Architecture Overview
+------------------------
+Windows Audio Engine (WASAPI)
+         ↓
+blackfoxCustomAPO.dll ← Real-time DSP
+         ↓
+Shared Memory + Config File ← Communication
+         ↓
+blck_fx-eq_gui.exe ← Dear ImGui Interface
+
+3. Folder Structure
+-------------------
+blck_fx-eq/
+├── .vscode/                  # VS Code config
+├── build/                    # Generated (add to .gitignore)
+├── external/
+│   ├── imgui/                # Dear ImGui + backends
+│   ├── glfw/                 # (if needed)
+│   └── json/                 # nlohmann/json
+├── src/
+│   ├── apo/                  # Custom APO
+│   │   ├── include/
+│   │   ├── src/
+│   │   └── CMakeLists.txt
+│   ├── gui/                  # GUI Application
+│   │   ├── include/
+│   │   ├── src/
+│   │   ├── assets/
+│   │   │   ├── fonts/
+│   │   │   ├── icons/
+│   │   │   └── themes/
+│   │   └── CMakeLists.txt
+│   ├── common/
+│   │   ├── include/
+│   │   │   ├── dsp/
+│   │   │   ├── config/
+│   │   │   ├── utils/
+│   │   │   └── version.h
+│   │   └── src/
+│   └── CMakeLists.txt        # Root
+├── cmake/                    # CMake helper modules
+├── docs/                     # This document + architecture.md
+├── presets/                  # .json presets
+├── logs/                     # Runtime logs (optional)
+├── README.md
+├── LICENSE
+└── .gitignore
+
+4. Audio Processing Specification
+---------------------------------
+Bands (12 sliders):
+
+Band | Center Freq (Hz) | Frequency Range (Hz)     | Filter Type    | Hertz Zone Name              | Main Effect Area
+-----|------------------|--------------------------|----------------|------------------------------|--------------------------------------------
+1    | 20               | 15.9 – 25.2              | Low Shelf      | Sub-bass (Rumble)            | Deep sub frequencies, felt vibration
+2    | 40               | 31.7 – 50.4              | Peak           | Sub-bass / Low Bass          | Bottom thump, kick weight
+3    | 80               | 63.5 – 100.8             | Peak           | Bass (Boom)                  | Bass guitar fundamental, kick punch
+4    | 160              | 127 – 201.6              | Peak           | Upper Bass / Low-Mids        | Bass warmth & body
+5    | 315              | 250 – 396.9              | Peak           | Low-Mids (Body)              | Fullness, boxiness, mud
+6    | 630              | 500 – 793.8              | Peak           | Mids (Warmth)                | Lower midrange, vocal warmth
+7    | 1,250            | 992 – 1,575              | Peak           | Mids (Clarity)               | Main midrange, presence
+8    | 2,500            | 1,984 – 3,150            | Peak           | Upper-Mids (Attack)          | Edge, bite, aggression
+9    | 5,000            | 3,969 – 6,300            | Peak           | Presence (Definition)        | Clarity, sibilance, harshness
+10   | 8,000            | 6,350 – 10,079           | Peak           | Brilliance (Sparkle)         | High-end sheen, cymbals
+11   | 12,500           | 9,921 – 15,749           | Peak           | Air / High Brilliance        | Openness, air, hi-hats
+12   | 20,000           | 15,874 – 25,198          | High Shelf     | Ultra-High Air               | Extreme top end (air & noise)
+
+Gain:
+- -10 dB … +10 dB → 1 dB steps
+- Outside range → 0.1 dB precision
+- Master Gain: -12 dB … +12 dB
+
+Saturation & Dynamics:
+- Parallel compression (NY Compressor style)
+- Soft saturation (tanh + harmonic generation)
+- Engages progressively when Master > 0 dB
+
+5. GUI Requirements
+-------------------
+- 12 vertical EQ sliders + 1 Master slider (with zone name labels)
+- Real-time frequency response curve (showing all 12 bands)
+- Dark / Neon theme toggle
+- Buttons turn gray when pressed
+- System tray icon (Show / Bypass / Exit)
+- Resizable window (minimum 320×480)
+- No auto-start with Windows
+
+6. Communication
+----------------
+Primary: Shared Memory Mapped File (fast)
+Backup: JSON config file (watched by APO)
+
+7. Implementation Order (Recommended)
+-------------------------------------
+Phase 1: Project skeleton + CMake
+Phase 2: Minimal working APO (identity pass-through)
+Phase 3: Register APO in Windows
+Phase 4: Biquad filters (12 bands) + Saturation + Compressor
+Phase 5: GUI + Shared Memory
+Phase 6: Themes + Polish + FL Studio 2025 testing
+Phase 7: Final testing with UR22mkII and DAW integration
+
+End of Document.
