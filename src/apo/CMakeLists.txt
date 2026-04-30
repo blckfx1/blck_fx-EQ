@@ -2,15 +2,13 @@ add_library(blackfox_apo SHARED
     src/main.cpp
 )
 
-# Explicit SDK paths (most important)
+# Better way - let CMake + Visual Studio find the SDK automatically
 target_include_directories(blackfox_apo PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/um"
-    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/shared"
 )
 
 target_link_libraries(blackfox_apo PRIVATE
-    "C:/Program Files (x86)/Windows Kits/10/Lib/10.0.26100.0/um/x64/AudioEngineBaseAPO.lib"
+    AudioEngineBaseAPO.lib
     ksuser.lib
     avrt.lib
     ole32.lib
