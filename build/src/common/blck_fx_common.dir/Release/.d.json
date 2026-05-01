@@ -1,0 +1,12 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\парадокс\\documents\\github\\blck_fx-eq\\src\\common\\src\\version.cpp",
+        "ProvidedModule": "",
+        "Includes": [
+            "c:\\users\\парадокс\\documents\\github\\blck_fx-eq\\src\\common\\include\\version.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
