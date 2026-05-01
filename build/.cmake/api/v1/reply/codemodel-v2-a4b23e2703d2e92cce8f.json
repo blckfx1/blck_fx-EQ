@@ -1,0 +1,664 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "nlohmann_json::@89556154f30252d09d22",
+					"jsonFile" : "target-nlohmann_json-Debug-5b28bbb57c2c980e6aa3.json",
+					"name" : "nlohmann_json",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-Debug-f040eec181a89de70dbe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"build" : "external",
+					"jsonFile" : "directory-external-Debug-62fa428f1ed6a61d2991.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "external"
+				},
+				{
+					"build" : "src/common",
+					"jsonFile" : "directory-src.common-Debug-17d8c3881417ec56c269.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/common",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "src/apo",
+					"jsonFile" : "directory-src.apo-Debug-41416bcac84ed8d69567.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/apo",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "src/gui",
+					"jsonFile" : "directory-src.gui-Debug-f9007c9920c828b06d03.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/gui",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "blck_fx-eq",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Debug-0a7f6b9c8540c83588a6.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Debug-83da09dc7552fc184130.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "blackfox_apo::@3726184c1fb98b5cf299",
+					"jsonFile" : "target-blackfox_apo-Debug-24d1642a6eaf77f4e043.json",
+					"name" : "blackfox_apo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "blck_fx-eq_gui::@7675e61a69a6135e3026",
+					"jsonFile" : "target-blck_fx-eq_gui-Debug-b19419dd0117f434416b.json",
+					"name" : "blck_fx-eq_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "blck_fx_common::@af79f3804eddddbfa7f1",
+					"jsonFile" : "target-blck_fx_common-Debug-f9990d5ef6f654ca3f15.json",
+					"name" : "blck_fx_common",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "nlohmann_json::@89556154f30252d09d22",
+					"jsonFile" : "target-nlohmann_json-Release-5b28bbb57c2c980e6aa3.json",
+					"name" : "nlohmann_json",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-Release-f040eec181a89de70dbe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"build" : "external",
+					"jsonFile" : "directory-external-Release-62fa428f1ed6a61d2991.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "external"
+				},
+				{
+					"build" : "src/common",
+					"jsonFile" : "directory-src.common-Release-17d8c3881417ec56c269.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/common",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "src/apo",
+					"jsonFile" : "directory-src.apo-Release-41416bcac84ed8d69567.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/apo",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "src/gui",
+					"jsonFile" : "directory-src.gui-Release-f9007c9920c828b06d03.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/gui",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "blck_fx-eq",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Release-0a7f6b9c8540c83588a6.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Release-83da09dc7552fc184130.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "blackfox_apo::@3726184c1fb98b5cf299",
+					"jsonFile" : "target-blackfox_apo-Release-c4c01fd6ece2a7729994.json",
+					"name" : "blackfox_apo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "blck_fx-eq_gui::@7675e61a69a6135e3026",
+					"jsonFile" : "target-blck_fx-eq_gui-Release-d2a6ff0aa05b0d620867.json",
+					"name" : "blck_fx-eq_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "blck_fx_common::@af79f3804eddddbfa7f1",
+					"jsonFile" : "target-blck_fx_common-Release-ead72e884fe81061f39b.json",
+					"name" : "blck_fx_common",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "nlohmann_json::@89556154f30252d09d22",
+					"jsonFile" : "target-nlohmann_json-MinSizeRel-5b28bbb57c2c980e6aa3.json",
+					"name" : "nlohmann_json",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-MinSizeRel-f040eec181a89de70dbe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"build" : "external",
+					"jsonFile" : "directory-external-MinSizeRel-62fa428f1ed6a61d2991.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "external"
+				},
+				{
+					"build" : "src/common",
+					"jsonFile" : "directory-src.common-MinSizeRel-17d8c3881417ec56c269.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/common",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "src/apo",
+					"jsonFile" : "directory-src.apo-MinSizeRel-41416bcac84ed8d69567.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/apo",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "src/gui",
+					"jsonFile" : "directory-src.gui-MinSizeRel-f9007c9920c828b06d03.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/gui",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "blck_fx-eq",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-0a7f6b9c8540c83588a6.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-83da09dc7552fc184130.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "blackfox_apo::@3726184c1fb98b5cf299",
+					"jsonFile" : "target-blackfox_apo-MinSizeRel-97588c1a87bb87ec0d8c.json",
+					"name" : "blackfox_apo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "blck_fx-eq_gui::@7675e61a69a6135e3026",
+					"jsonFile" : "target-blck_fx-eq_gui-MinSizeRel-d593b69b3832041f8f73.json",
+					"name" : "blck_fx-eq_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "blck_fx_common::@af79f3804eddddbfa7f1",
+					"jsonFile" : "target-blck_fx_common-MinSizeRel-3a85d2ae19c32d3cc556.json",
+					"name" : "blck_fx_common",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "nlohmann_json::@89556154f30252d09d22",
+					"jsonFile" : "target-nlohmann_json-RelWithDebInfo-5b28bbb57c2c980e6aa3.json",
+					"name" : "nlohmann_json",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-RelWithDebInfo-f040eec181a89de70dbe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"build" : "external",
+					"jsonFile" : "directory-external-RelWithDebInfo-62fa428f1ed6a61d2991.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "external"
+				},
+				{
+					"build" : "src/common",
+					"jsonFile" : "directory-src.common-RelWithDebInfo-17d8c3881417ec56c269.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/common",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "src/apo",
+					"jsonFile" : "directory-src.apo-RelWithDebInfo-41416bcac84ed8d69567.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/apo",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "src/gui",
+					"jsonFile" : "directory-src.gui-RelWithDebInfo-f9007c9920c828b06d03.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/gui",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "blck_fx-eq",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-0a7f6b9c8540c83588a6.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-83da09dc7552fc184130.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "blackfox_apo::@3726184c1fb98b5cf299",
+					"jsonFile" : "target-blackfox_apo-RelWithDebInfo-0b22cf39a5d4ca0e1a99.json",
+					"name" : "blackfox_apo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "blck_fx-eq_gui::@7675e61a69a6135e3026",
+					"jsonFile" : "target-blck_fx-eq_gui-RelWithDebInfo-259025cbeec0b676511a.json",
+					"name" : "blck_fx-eq_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "blck_fx_common::@af79f3804eddddbfa7f1",
+					"jsonFile" : "target-blck_fx_common-RelWithDebInfo-1dd0f550407bbbf027a1.json",
+					"name" : "blck_fx_common",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/\u041f\u0430\u0440\u0430\u0434\u043e\u043a\u0441/Documents/GitHub/blck_fx-EQ/build",
+		"source" : "C:/Users/\u041f\u0430\u0440\u0430\u0434\u043e\u043a\u0441/Documents/GitHub/blck_fx-EQ"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 10
+	}
+}
