@@ -1,6 +1,8 @@
 add_library(blackfox_apo SHARED
     src/main.cpp
 )
+target_include_directories(blackfox_apo PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 
 target_include_directories(blackfox_apo PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include

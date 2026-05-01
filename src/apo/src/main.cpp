@@ -1,5 +1,7 @@
-#include <windows.h>
-#include <AudioEngineBaseAPO.h>
+#include "stdafx.h" // Precompiled header for Windows system includes
+#include <audioenginebaseapo.h>
+#include <baseaudioprocessingobject.h>
+#include <memory.h>  // For ZeroMemory, CopyMemory
 
 // Your APO GUID
 static const GUID CLSID_BlackfoxCustomAPO = 
