@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/\u041f\u0430\u0440\u0430\u0434\u043e\u043a\u0441/Documents/GitHub/blck_fx-EQ/build/cmake_install.cmake",
+		"C:/Users/\u041f\u0430\u0440\u0430\u0434\u043e\u043a\u0441/Documents/GitHub/blck_fx-EQ/build/external/cmake_install.cmake",
+		"C:/Users/\u041f\u0430\u0440\u0430\u0434\u043e\u043a\u0441/Documents/GitHub/blck_fx-EQ/build/src/common/cmake_install.cmake",
+		"C:/Users/\u041f\u0430\u0440\u0430\u0434\u043e\u043a\u0441/Documents/GitHub/blck_fx-EQ/build/src/apo/cmake_install.cmake",
+		"C:/Users/\u041f\u0430\u0440\u0430\u0434\u043e\u043a\u0441/Documents/GitHub/blck_fx-EQ/build/src/gui/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

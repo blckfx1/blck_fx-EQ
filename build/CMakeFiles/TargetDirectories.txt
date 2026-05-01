@@ -1,0 +1,5 @@
+C:/Users/Парадокс/Documents/GitHub/blck_fx-EQ/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Парадокс/Documents/GitHub/blck_fx-EQ/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Парадокс/Documents/GitHub/blck_fx-EQ/build/src/common/CMakeFiles/blck_fx_common.dir
+C:/Users/Парадокс/Documents/GitHub/blck_fx-EQ/build/src/apo/CMakeFiles/blackfox_apo.dir
+C:/Users/Парадокс/Documents/GitHub/blck_fx-EQ/build/src/gui/CMakeFiles/blck_fx-eq_gui.dir

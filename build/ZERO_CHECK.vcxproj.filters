@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Парадокс\Documents\GitHub\blck_fx-EQ\build\CMakeFiles\7598ca433dd7d3ef5d72c777c8e5f6b5\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6AF10A46-DF4F-3D08-93D2-19B960AAAEBD}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

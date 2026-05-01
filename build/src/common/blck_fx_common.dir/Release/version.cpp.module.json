@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "blck_fx_common.dir\\Release\\version.obj",
+            "outputs": [
+                "blck_fx_common.dir\\Release\\"
+            ],
+            "requires": []
+        }
+    ]
+}
