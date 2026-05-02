@@ -111,22 +111,13 @@ public:
             return;
         }
 
-        FLOAT32* pSrc = reinterpret_cast<FLOAT32*>(pInput->pBuffer);
-        FLOAT32* pDst = reinterpret_cast<FLOAT32*>(pOutput->pBuffer);
-
-        size_t bytesToCopy = (size_t)pInput->u32ValidFrameCount 
-                           * pInput->u32BytesPerSample 
-                           * pInput->u32FramesPerPacket;
-
-
-        // Pass-through (identity)
-        CopyMemory(pOutput->pBuffer, pInput->pBuffer, 
-                   (size_t)pInput->u32ValidFrameCount * 8);  // 2 channels * 4 bytes float
-
-        CopyMemory(pDst, pSrc, bytesToCopy);
-
+        CopyMemory(pOutput->pBuffer, 
+               pInput->pBuffer, 
+               (size_t)pInput->u32ValidFrameCount * 8);   // 2ch * 4 bytes (float)
         pOutput->u32ValidFrameCount = pInput->u32ValidFrameCount;
         pOutput->u32BufferFlags     = pInput->u32BufferFlags;
+
+
     }
 };
 
