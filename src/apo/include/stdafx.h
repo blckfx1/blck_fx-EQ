@@ -1,5 +1,6 @@
-// stdafx.h
 #pragma once
-#include <windows.h>
-#include <objbase.h>
 
+#include <windows.h>
+#include <audioclient.h>
+#include <mmdeviceapi.h>
+#include <avrt.h>

@@ -1,25 +1,27 @@
-#include "stdafx.h" // Precompiled header for Windows system includes
+#include "stdafx.h"
 #include <audioenginebaseapo.h>
 #include <baseaudioprocessingobject.h>
-#include <memory.h>  // For ZeroMemory, CopyMemory
+#include <memory.h>
 
-// Your APO GUID
+// APO GUID
 static const GUID CLSID_BlackfoxCustomAPO = 
 { 0xa1b2c3d4, 0xe5f6, 0x4789, { 0xab, 0xcd, 0xef, 0x12, 0x34, 0x56, 0x78, 0x90 } };
 
 class BlackfoxCustomAPO : public CBaseAudioProcessingObject
 {
 public:
-    BlackfoxCustomAPO() = default;
+    // Remove "= default" and declare it properly
+    BlackfoxCustomAPO() {}     // empty constructor
 
+    DECLARE_APO_COM_CLASS();   // Very important Microsoft macro
     STDMETHODIMP GetRegistrationProperties(APO_REG_PROPERTIES** ppRegProps) override
     {
         if (!ppRegProps) return E_POINTER;
 
-        *ppRegProps = (APO_REG_PROPERTIES*)CoTaskMemAlloc(sizeof(APO_REG_PROPERTIES));
+        *ppRegProps = (APO_REG_PROPERTIES*)CoTaskMemAlloc(sizeof(APO_REG_PROPERTIES) + sizeof(GUID));
         if (!*ppRegProps) return E_OUTOFMEMORY;
 
-        ZeroMemory(*ppRegProps, sizeof(APO_REG_PROPERTIES));
+        ZeroMemory(*ppRegProps, sizeof(APO_REG_PROPERTIES) + sizeof(GUID));
 
         APO_REG_PROPERTIES* pProps = *ppRegProps;
         pProps->clsid = CLSID_BlackfoxCustomAPO;
@@ -35,19 +37,24 @@ public:
         return S_OK;
     }
 
-    STDMETHODIMP IsInputFormatSupported(IAudioMediaType* pProposedInputFormat,
-                                       IAudioMediaType** ppSupportedInputFormat) override
+    // === CORRECT signatures (this was the main error) ===
+    STDMETHODIMP IsInputFormatSupported(
+        IAudioMediaType* pOppositeFormat,
+        IAudioMediaType* pRequestedInputFormat,
+        IAudioMediaType** ppSupportedInputFormat) override
     {
-        *ppSupportedInputFormat = pProposedInputFormat;
-        if (pProposedInputFormat) pProposedInputFormat->AddRef();
+        *ppSupportedInputFormat = pRequestedInputFormat;
+        if (pRequestedInputFormat) pRequestedInputFormat->AddRef();
         return S_OK;
     }
 
-    STDMETHODIMP IsOutputFormatSupported(IAudioMediaType* pProposedOutputFormat,
-                                        IAudioMediaType** ppSupportedOutputFormat) override
+    STDMETHODIMP IsOutputFormatSupported(
+        IAudioMediaType* pOppositeFormat,
+        IAudioMediaType* pRequestedOutputFormat,
+        IAudioMediaType** ppSupportedOutputFormat) override
     {
-        *ppSupportedOutputFormat = pProposedOutputFormat;
-        if (pProposedOutputFormat) pProposedOutputFormat->AddRef();
+        *ppSupportedOutputFormat = pRequestedOutputFormat;
+        if (pRequestedOutputFormat) pRequestedOutputFormat->AddRef();
         return S_OK;
     }
 
@@ -57,8 +64,7 @@ public:
         UINT32 u32NumOutputConnections,
         APO_CONNECTION_PROPERTY** ppOutputConnections) override
     {
-        UNREFERENCED_PARAMETER(u32NumInputConnections);
-        UNREFERENCED_PARAMETER(u32NumOutputConnections);
+        if (u32NumInputConnections == 0 || u32NumOutputConnections == 0) return;
 
         APO_CONNECTION_PROPERTY* pInput  = ppInputConnections[0];
         APO_CONNECTION_PROPERTY* pOutput = ppOutputConnections[0];
@@ -76,11 +82,9 @@ public:
             return;
         }
 
-        FLOAT32* pSrc = (FLOAT32*)pInput->pBuffer;
-        FLOAT32* pDst = (FLOAT32*)pOutput->pBuffer;
-
-        // Identity pass-through (stereo float32 = 8 bytes per frame)
-        CopyMemory(pDst, pSrc, (size_t)pInput->u32ValidFrameCount * 8);
+        // Pass-through (identity)
+        CopyMemory(pOutput->pBuffer, pInput->pBuffer, 
+                   (size_t)pInput->u32ValidFrameCount * 8);  // 2 channels * 4 bytes float
 
         pOutput->u32ValidFrameCount = pInput->u32ValidFrameCount;
         pOutput->u32BufferFlags     = pInput->u32BufferFlags;
