@@ -17,6 +17,8 @@ public:
         }
     static const APO_REG_PROPERTIES sm_RegProperties;
 
+    STDMETHODIMP DECLARE_APO_COM_CLASS();
+
     STDMETHODIMP Initialize(UINT32 cbDataSize, BYTE* pbyData) override
     {
         UNREFERENCED_PARAMETER(cbDataSize);
@@ -111,9 +113,9 @@ public:
             return;
         }
 
-        CopyMemory(pOutput->pBuffer, 
-               pInput->pBuffer, 
-               (size_t)pInput->u32ValidFrameCount * 8);   // 2ch * 4 bytes (float)
+        CopyMemory(reinterpret_cast<void*>(pOutput->pBuffer),
+                   reinterpret_cast<const void*>(pInput->pBuffer),
+                   (size_t)pInput->u32ValidFrameCount * 8ULL);  // 2ch * 4 bytes (float)
         pOutput->u32ValidFrameCount = pInput->u32ValidFrameCount;
         pOutput->u32BufferFlags     = pInput->u32BufferFlags;
 
