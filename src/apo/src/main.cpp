@@ -11,7 +11,36 @@ class BlackfoxCustomAPO : public CBaseAudioProcessingObject
 {
 public:
     // Remove "= default" and declare it properly
-    BlackfoxCustomAPO() {}     // empty constructor
+    BlackfoxCustomAPO()      // empty constructor
+        : CBaseAudioProcessingObject(&sm_RegProperties)
+        {
+        }
+    static const APO_REG_PROPERTIES sm_RegProperties;
+
+    STDMETHODIMP Initialize(UINT32 cbDataSize, BYTE* pbyData) override
+    {
+        UNREFERENCED_PARAMETER(cbDataSize);
+        UNREFERENCED_PARAMETER(pbyData);
+        return S_OK;
+    }
+
+    STDMETHODIMP LockForProcess(
+        UINT32 u32NumInputConnections,
+        APO_CONNECTION_DESCRIPTOR** ppInputConnections,
+        UINT32 u32NumOutputConnections,
+        APO_CONNECTION_DESCRIPTOR** ppOutputConnections) override
+    {
+        UNREFERENCED_PARAMETER(u32NumInputConnections);
+        UNREFERENCED_PARAMETER(ppInputConnections);
+        UNREFERENCED_PARAMETER(u32NumOutputConnections);
+        UNREFERENCED_PARAMETER(ppOutputConnections);
+        return S_OK;
+    }
+
+    STDMETHODIMP UnlockForProcess() override
+    {
+        return S_OK;
+    }
 
     STDMETHODIMP DECLARE_APO_COM_CLASS();   // Very important Microsoft macro
     STDMETHODIMP GetRegistrationProperties(APO_REG_PROPERTIES** ppRegProps) override
@@ -82,9 +111,19 @@ public:
             return;
         }
 
+        FLOAT32* pSrc = reinterpret_cast<FLOAT32*>(pInput->pBuffer);
+        FLOAT32* pDst = reinterpret_cast<FLOAT32*>(pOutput->pBuffer);
+
+        size_t bytesToCopy = (size_t)pInput->u32ValidFrameCount 
+                           * pInput->u32BytesPerSample 
+                           * pInput->u32FramesPerPacket;
+
+
         // Pass-through (identity)
         CopyMemory(pOutput->pBuffer, pInput->pBuffer, 
                    (size_t)pInput->u32ValidFrameCount * 8);  // 2 channels * 4 bytes float
+
+        CopyMemory(pDst, pSrc, bytesToCopy);
 
         pOutput->u32ValidFrameCount = pInput->u32ValidFrameCount;
         pOutput->u32BufferFlags     = pInput->u32BufferFlags;
@@ -95,3 +134,19 @@ __declspec(dllexport) CBaseAudioProcessingObject* __cdecl CreateBlackfoxCustomAP
 {
     return new BlackfoxCustomAPO();
 }
+
+
+const APO_REG_PROPERTIES BlackfoxCustomAPO::sm_RegProperties =
+{
+    sizeof(APO_REG_PROPERTIES),           // cbSize
+    APO_REG_PROPERTIES_MAJOR_VERSION,     // MajorVersion
+    APO_REG_PROPERTIES_MINOR_VERSION,     // MinorVersion
+    { 0 },                                // Reserved
+    APO_FLAG_DEFAULT,                     // Flags
+    1, 1,                                 // Min/Max Input Connections
+    1, 1,                                 // Min/Max Output Connections
+    0,                                    // MaxFramesPerBuffer (0 = default)
+    L"Blackfox Custom APO",               // szFriendlyName
+    L"© 2026 Justin - blck_fx-EQ",        // szCopyrightInfo
+    CLSID_BlackfoxCustomAPO               // clsid
+};
