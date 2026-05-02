@@ -13,7 +13,7 @@ public:
     // Remove "= default" and declare it properly
     BlackfoxCustomAPO() {}     // empty constructor
 
-    DECLARE_APO_COM_CLASS();   // Very important Microsoft macro
+    STDMETHODIMP DECLARE_APO_COM_CLASS();   // Very important Microsoft macro
     STDMETHODIMP GetRegistrationProperties(APO_REG_PROPERTIES** ppRegProps) override
     {
         if (!ppRegProps) return E_POINTER;
