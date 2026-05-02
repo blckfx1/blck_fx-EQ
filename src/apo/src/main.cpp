@@ -13,8 +13,6 @@ public:
     // Remove "= default" and declare it properly
     BlackfoxCustomAPO()      // empty constructor
         : CBaseAudioProcessingObject(&sm_RegProperties)
-        {
-        }
     static const APO_REG_PROPERTIES sm_RegProperties;
 
     STDMETHODIMP DECLARE_APO_COM_CLASS();
